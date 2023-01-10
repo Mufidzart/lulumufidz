@@ -26,9 +26,10 @@ License: For each use you must have a valid license purchased only from above li
 	<meta property="og:url" content="https://keenthemes.com/metronic" />
 	<meta property="og:site_name" content="Keenthemes | Metronic" />
 	<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-	<link rel="shortcut icon" href="assets/images/favicon.webp" />
+	<link rel="shortcut icon" href="assets/images/intial_logo.png" />
 	<!--begin::Fonts-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+	<link href='https://fonts.googleapis.com/css?family=Great Vibes' rel='stylesheet'>
 	<!--end::Fonts-->
 	<!--begin::Global Stylesheets Bundle(used by all pages)-->
 	<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
@@ -44,25 +45,41 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Header Section-->
 		<div class="mb-0" id="home">
 			<!--begin::Wrapper-->
-			<div class="bgi-no-repeat landing-dark-bg" style="background-image: url(assets/media/svg/illustrations/landing.svg); height: 700px;">
+			<div class="bgi-no-repeat pb-2 h-800px h-lg-900px" style="background-color: #ffeded;">
 				<!--begin::Landing hero-->
-				<div class="d-flex flex-column flex-center min-vh-100 text-center py-20" style="padding-left: 20%;padding-right: 20%;">
+				<div class="d-flex flex-column flex-center min-vh-100 text-center py-20" style="padding-left: 20px;padding-right: 20px;">
 					<!--begin::Title-->
-					<img src="assets/images/avatars-min.webp" class="mh-125px mb-9" alt="" />
-					<h1 class="text-white fw-bolder fs-2x fs-lg-3x">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h1>
-					<span class="text-white fs-9 fs-lg-5">Assalamu’alaikum Warahmatullahi Wabarakatuh</span><br>
-					<span class="text-white fs-9 fs-lg-5">Maha suci Allah yang telah menciptakan mahluk-Nya berpasang-pasangan. Ya Allah perkenankanlah kami menjalankan salah satu perintahmu untuk melangsungkan pernikahan kami:</span><br>
-					<h1 class="text-white fw-bolder fs-2x fs-lg-3x my-5">
+					<h1 class="fw-bolder fs-4x fs-lg-3x" style="color: #80364a;">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</h1>
+					<span class="fs-1x fs-lg-4" style="color: #80364a;">Assalamu’alaikum Warahmatullahi Wabarakatuh</span><br>
+					<span class="fs-1x fs-lg-4" style="color: #80364a;">Maha suci Allah yang telah menciptakan mahluk-Nya berpasang-pasangan.<br>
+						Ya Allah, perkenankanlah kami menjalankan salah satu perintahmu untuk melangsungkan pernikahan kami:</span><br>
+					<img src="assets/images/avatars-min.webp" class="mh-150px mh-lg-250px mb-9" alt="" />
+					<h1 class="fw-bolder fs-5x fs-lg-6x my-5" style="color: #F56282;font-family: 'Great Vibes';">
 						<span>Lulu & Mufidz</span><br>
 					</h1>
-					<!--end::Title-->
-					<img src="assets/images/heart-balloons.gif" class="mh-125px mb-9" alt="" />
+					<img src="assets/images/heart-balloons.gif" class="mh-80px mh-lg-100px mb-9" alt="" />
+					<?php
+					if ($_GET['to']) {
+						$nama_undangan = $_GET['to'];
+					} else {
+						$nama_undangan = "";
+					}
+					?>
+					<?php if ($_GET['to']) : ?>
+						<div class="btn btn-flex btn-outline btn-outline-danger btn-outline-danger btn-active-danger px-6">
+							<span class=""><i class="bi bi-file-earmark-richtext-fill text-danger fs-1"></i></span>
+							<span class="d-flex flex-column align-items-start ms-2">
+								<span class="fs-7">Undangan untuk:</span>
+								<span class="fs-3 fw-bolder"><?= $nama_undangan ?></span>
+							</span>
+						</div>
+					<?php endif; ?>
 				</div>
 				<!--end::Landing hero-->
 			</div>
 			<!--end::Wrapper-->
 			<!--begin::Curve bottom-->
-			<div class="landing-curve landing-dark-color mb-10 mb-lg-20">
+			<div class="landing-curve mb-10 mb-lg-20" style="color: #ffeded;">
 				<svg viewBox="15 12 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M0 11C3.93573 11.3356 7.85984 11.6689 11.7725 12H1488.16C1492.1 11.6689 1496.04 11.3356 1500 11V12H1488.16C913.668 60.3476 586.282 60.6117 11.7725 12H0V11Z" fill="currentColor"></path>
 				</svg>
@@ -77,92 +94,78 @@ License: For each use you must have a valid license purchased only from above li
 				<!--begin::Heading-->
 				<div class="text-center mb-17">
 					<!--begin::Title-->
-					<h3 class="fs-2hx text-dark mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">How it Works</h3>
+					<h3 class=" fs-5x fs-lg-6x text-danger mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}" style="font-family: 'Great Vibes';">Mempelai</h3>
 					<!--end::Title-->
-					<!--begin::Text-->
-					<div class="fs-5 text-muted fw-bold">Save thousands to millions of bucks by using single tool
-						<br />for different amazing and great useful admin
-					</div>
-					<!--end::Text-->
 				</div>
 				<!--end::Heading-->
 				<!--begin::Row-->
 				<div class="row w-100 gy-10 mb-md-20">
 					<!--begin::Col-->
-					<div class="col-md-4 px-5">
+					<div class="col-md-6 px-5">
 						<!--begin::Story-->
 						<div class="text-center mb-10 mb-md-0">
 							<!--begin::Illustration-->
-							<img src="assets/media/illustrations/sketchy-1/2.png" class="mh-125px mb-9" alt="" />
+							<img src="assets/images/woman-avatar.png" class="mh-125px mb-9" alt="" />
 							<!--end::Illustration-->
 							<!--begin::Heading-->
 							<div class="d-flex flex-center mb-5">
-								<!--begin::Badge-->
-								<span class="badge badge-circle badge-light-success fw-bolder p-5 me-3 fs-3">1</span>
-								<!--end::Badge-->
 								<!--begin::Title-->
-								<div class="fs-5 fs-lg-3 fw-bolder text-dark">Jane Miller</div>
+								<div class="fs-5x fs-lg-4x fw-bolder" style="font-family: 'Great Vibes'; color: #80364A;">Lulu Ma'rifah</div>
 								<!--end::Title-->
 							</div>
 							<!--end::Heading-->
 							<!--begin::Description-->
-							<div class="fw-bold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-								<br />by using single tool for different
-								<br />amazing and great
+							<div class="fw-bold fs-6 fs-lg-4" style="color:#BF7388">Desa Karangkemiri, Kecamatan Karanglewas
+								<br />Putri Bapak Catur dan Ibu Ely
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<a href="https://www.instagram.com/mba.lulu/" target="_blank" class="symbol symbol-50px me-2">
+										<span class="symbol-label">
+											<img src="assets/media/svg/brand-logos/instagram-2-1.svg" class="h-50 align-self-center" alt="">
+										</span>
+									</a>
+									<a href="https://www.facebook.com/lulu.marifah.77" target="_blank" class="symbol symbol-50px me-2">
+										<span class="symbol-label">
+											<img src="assets/media/svg/brand-logos/facebook-4.svg" class="h-50 align-self-center" alt="">
+										</span>
+									</a>
+								</div>
 							</div>
 							<!--end::Description-->
 						</div>
 						<!--end::Story-->
 					</div>
-					<!--end::Col-->
-					<!--begin::Col-->
-					<div class="col-md-4 px-5">
+					<div class="col-md-6 px-5">
 						<!--begin::Story-->
 						<div class="text-center mb-10 mb-md-0">
 							<!--begin::Illustration-->
-							<img src="assets/media/illustrations/sketchy-1/8.png" class="mh-125px mb-9" alt="" />
+							<img src="assets/images/man-avatar.png" class="mh-125px mb-9" alt="" />
 							<!--end::Illustration-->
 							<!--begin::Heading-->
 							<div class="d-flex flex-center mb-5">
-								<!--begin::Badge-->
-								<span class="badge badge-circle badge-light-success fw-bolder p-5 me-3 fs-3">2</span>
-								<!--end::Badge-->
 								<!--begin::Title-->
-								<div class="fs-5 fs-lg-3 fw-bolder text-dark">Setup Your App</div>
+								<div class="fs-5x fs-lg-4x fw-bolder" style="font-family: 'Great Vibes'; color: #80364A;">Muhamad Abdul Mufidz</div>
 								<!--end::Title-->
 							</div>
 							<!--end::Heading-->
 							<!--begin::Description-->
-							<div class="fw-bold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-								<br />by using single tool for different
-								<br />amazing and great
+							<div class="fw-bold fs-6 fs-lg-4" style=" color:#BF7388">Desa Kotayasa, Kecamatan Sumbang
+								<br />Putri Bapak Nartono dan Ibu Narsitem
 							</div>
-							<!--end::Description-->
-						</div>
-						<!--end::Story-->
-					</div>
-					<!--end::Col-->
-					<!--begin::Col-->
-					<div class="col-md-4 px-5">
-						<!--begin::Story-->
-						<div class="text-center mb-10 mb-md-0">
-							<!--begin::Illustration-->
-							<img src="assets/media/illustrations/sketchy-1/12.png" class="mh-125px mb-9" alt="" />
-							<!--end::Illustration-->
-							<!--begin::Heading-->
-							<div class="d-flex flex-center mb-5">
-								<!--begin::Badge-->
-								<span class="badge badge-circle badge-light-success fw-bolder p-5 me-3 fs-3">3</span>
-								<!--end::Badge-->
-								<!--begin::Title-->
-								<div class="fs-5 fs-lg-3 fw-bolder text-dark">Enjoy Nautica App</div>
-								<!--end::Title-->
-							</div>
-							<!--end::Heading-->
-							<!--begin::Description-->
-							<div class="fw-bold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-								<br />by using single tool for different
-								<br />amazing and great
+							<div class="row">
+								<div class="col-md-12">
+									<a href="https://www.instagram.com/kakmufidz/" target="_blank" class="symbol symbol-50px me-2">
+										<span class="symbol-label">
+											<img src="assets/media/svg/brand-logos/instagram-2-1.svg" class="h-50 align-self-center" alt="">
+										</span>
+									</a>
+									<a href="https://www.facebook.com/kakmufidz/" target="_blank" class="symbol symbol-50px me-2">
+										<span class="symbol-label">
+											<img src="assets/media/svg/brand-logos/facebook-4.svg" class="h-50 align-self-center" alt="">
+										</span>
+									</a>
+								</div>
 							</div>
 							<!--end::Description-->
 						</div>
@@ -171,77 +174,27 @@ License: For each use you must have a valid license purchased only from above li
 					<!--end::Col-->
 				</div>
 				<!--end::Row-->
-				<!--begin::Product slider-->
-				<div class="tns tns-default">
-					<!--begin::Slider-->
-					<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
-						<!--begin::Item-->
-						<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-							<img src="assets/media/product-demos/demo1.png" class="card-rounded shadow mw-100" alt="" />
-						</div>
-						<!--end::Item-->
-						<!--begin::Item-->
-						<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-							<img src="assets/media/product-demos/demo2.png" class="card-rounded shadow mw-100" alt="" />
-						</div>
-						<!--end::Item-->
-						<!--begin::Item-->
-						<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-							<img src="assets/media/product-demos/demo4.png" class="card-rounded shadow mw-100" alt="" />
-						</div>
-						<!--end::Item-->
-						<!--begin::Item-->
-						<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-							<img src="assets/media/product-demos/demo5.png" class="card-rounded shadow mw-100" alt="" />
-						</div>
-						<!--end::Item-->
-					</div>
-					<!--end::Slider-->
-					<!--begin::Slider button-->
-					<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev1">
-						<!--begin::Svg Icon | path: icons/duotune/arrows/arr074.svg-->
-						<span class="svg-icon svg-icon-3x">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-								<path d="M11.2657 11.4343L15.45 7.25C15.8642 6.83579 15.8642 6.16421 15.45 5.75C15.0358 5.33579 14.3642 5.33579 13.95 5.75L8.40712 11.2929C8.01659 11.6834 8.01659 12.3166 8.40712 12.7071L13.95 18.25C14.3642 18.6642 15.0358 18.6642 15.45 18.25C15.8642 17.8358 15.8642 17.1642 15.45 16.75L11.2657 12.5657C10.9533 12.2533 10.9533 11.7467 11.2657 11.4343Z" fill="black" />
-							</svg>
-						</span>
-						<!--end::Svg Icon-->
-					</button>
-					<!--end::Slider button-->
-					<!--begin::Slider button-->
-					<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next1">
-						<!--begin::Svg Icon | path: icons/duotune/arrows/arr071.svg-->
-						<span class="svg-icon svg-icon-3x">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-								<path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="black" />
-							</svg>
-						</span>
-						<!--end::Svg Icon-->
-					</button>
-					<!--end::Slider button-->
-				</div>
-				<!--end::Product slider-->
 			</div>
 			<!--end::Container-->
 		</div>
 		<!--end::How It Works Section-->
 		<!--begin::Statistics Section-->
-		<div class="mt-sm-n10">
+		<div class="mt-20">
 			<!--begin::Curve top-->
-			<div class="landing-curve landing-dark-color">
+			<div class="landing-curve" style="color: #ffeded;">
 				<svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z" fill="currentColor"></path>
 				</svg>
 			</div>
 			<!--end::Curve top-->
 			<!--begin::Wrapper-->
-			<div class="pb-15 pt-18 landing-dark-bg">
+			<div class="pb-15 pt-18" style="background-color: #ffeded;">
 				<!--begin::Container-->
 				<div class="container">
 					<!--begin::Heading-->
 					<div class="text-center mt-15 mb-18" id="achievements" data-kt-scroll-offset="{default: 100, lg: 150}">
 						<!--begin::Title-->
-						<h3 class="fs-2hx text-white fw-bolder mb-5">We Make Things Better</h3>
+						<h3 class=" fs-4x fs-lg-3x text-danger mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}" style="font-family: 'Great Vibes';">Lulu & Mufidz</h3>
 						<!--end::Title-->
 						<!--begin::Description-->
 						<div class="fs-5 text-gray-700 fw-bold">Save thousands to millions of bucks by using single tool
@@ -255,7 +208,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Items-->
 						<div class="d-flex flex-wrap flex-center justify-content-lg-between mb-15 mx-auto w-xl-900px">
 							<!--begin::Item-->
-							<div class="d-flex flex-column flex-center h-200px w-200px h-lg-250px w-lg-250px m-3 bgi-no-repeat bgi-position-center bgi-size-contain" style="background-image: url('assets/media/svg/misc/octagon.svg')">
+							<div class="d-flex flex-column flex-center h-200px w-200px h-lg-250px w-lg-250px m-3 bgi-no-repeat bgi-position-center bgi-size-containbgi-danger">
 								<!--begin::Symbol-->
 								<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 								<span class="svg-icon svg-icon-2tx svg-icon-white mb-3">
@@ -359,7 +312,7 @@ License: For each use you must have a valid license purchased only from above li
 			</div>
 			<!--end::Wrapper-->
 			<!--begin::Curve bottom-->
-			<div class="landing-curve landing-dark-color">
+			<div class="landing-curve" style="color: #ffeded;">
 				<svg viewBox="15 12 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M0 11C3.93573 11.3356 7.85984 11.6689 11.7725 12H1488.16C1492.1 11.6689 1496.04 11.3356 1500 11V12H1488.16C913.668 60.3476 586.282 60.6117 11.7725 12H0V11Z" fill="currentColor"></path>
 				</svg>
