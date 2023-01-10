@@ -116,9 +116,9 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Heading-->
 							<!--begin::Description-->
 							<div class="fw-bold fs-6 fs-lg-4" style="color:#BF7388">Desa Karangkemiri, Kecamatan Karanglewas
-								<br />Putri Bapak Catur dan Ibu Ely
+								<br />Putri Bapak Catur Priyatno dan Ibu Ely Triyati
 							</div>
-							<div class="row">
+							<div class="row mt-5">
 								<div class="col-md-12">
 									<a href="https://www.instagram.com/mba.lulu/" target="_blank" class="symbol symbol-50px me-2">
 										<span class="symbol-label">
@@ -153,7 +153,7 @@ License: For each use you must have a valid license purchased only from above li
 							<div class="fw-bold fs-6 fs-lg-4" style=" color:#BF7388">Desa Kotayasa, Kecamatan Sumbang
 								<br />Putri Bapak Nartono dan Ibu Narsitem
 							</div>
-							<div class="row">
+							<div class="row mt-5">
 								<div class="col-md-12">
 									<a href="https://www.instagram.com/kakmufidz/" target="_blank" class="symbol symbol-50px me-2">
 										<span class="symbol-label">
@@ -196,11 +196,6 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Title-->
 						<h3 class=" fs-4x fs-lg-3x text-danger mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}" style="font-family: 'Great Vibes';">Lulu & Mufidz</h3>
 						<!--end::Title-->
-						<!--begin::Description-->
-						<div class="fs-5 text-gray-700 fw-bold">Save thousands to millions of bucks by using single tool
-							<br />for different amazing and great useful admin
-						</div>
-						<!--end::Description-->
 					</div>
 					<!--end::Heading-->
 					<!--begin::Statistics-->
