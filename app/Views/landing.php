@@ -60,7 +60,7 @@ License: For each use you must have a valid license purchased only from above li
 					<img src="assets/images/heart-balloons.gif" class="mh-80px mh-lg-100px mb-9" alt="" />
 					<?php
 					if (isset($_GET['to'])) {
-						$nama_undangan = $_GET['to'];
+						$nama_undangan =  str_replace("+", " ", $_GET['to']);
 					} else {
 						$nama_undangan = "";
 					}
@@ -69,8 +69,7 @@ License: For each use you must have a valid license purchased only from above li
 						<div class="btn btn-flex btn-outline btn-outline-danger btn-outline-danger btn-active-danger px-6">
 							<span class=""><i class="bi bi-file-earmark-richtext-fill text-danger fs-1"></i></span>
 							<span class="d-flex flex-column align-items-start ms-2">
-								<span class="fs-7">Undangan untuk:</span>
-								<span class="fs-3 fw-bolder"><?= $nama_undangan ?></span>
+								<span class="fs-7">Undangan untuk: <span class="fs-3 fw-bolder"><?= $nama_undangan ?></span></span>
 							</span>
 						</div>
 					<?php endif; ?>
