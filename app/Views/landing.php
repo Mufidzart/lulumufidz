@@ -67,14 +67,14 @@ License: For each use you must have a valid license purchased only from above li
 						$nama_undangan = "";
 					}
 					?>
-					<a id="example" class="audio {loop:true, inLine:false}" href="<?= base_url() ?>/assets/music/until-i-found-you.mp3">
+					<a id="myaudio" class="audio {loop:true, inLine:false}" href="assets/music/until-i-found-you.mp3">
 						Stephen Sanchez - Until I Found You
 					</a>
 
-					<a href="javascript:;" class="btn btn-danger" id="playaudio">Play</a>
-					<a href="javascript:;" class="btn btn-danger" id="pauseaudio">Pause</a>
+					<!-- <a href="javascript:;" class="btn btn-danger" id="playaudio">Play</a>
+					<a href="javascript:;" class="btn btn-danger" id="pauseaudio">Pause</a> -->
 					<?php if (isset($_GET['to'])) : ?>
-						<div class="btn btn-flex btn-outline btn-outline-danger btn-outline-danger btn-active-danger px-6">
+						<div class="btn btn-flex btn-outline btn-outline-danger btn-outline-danger btn-active-danger px-6 my-6">
 							<span class=""><i class="bi bi-file-earmark-richtext-fill text-danger fs-1"></i></span>
 							<span class="d-flex flex-column align-items-start ms-2">
 								<span class="fs-7">Undangan untuk: <span class="fs-3 fw-bolder"><?= $nama_undangan ?></span></span>
@@ -661,6 +661,56 @@ License: For each use you must have a valid license purchased only from above li
 	</div>
 	<!--end::Modal - Invite Friend-->
 
+	<!--begin::Modal - Welcome-->
+	<div class="modal fade" id="modal-welcome" tabindex="-1" aria-hidden="true">
+		<!--begin::Modal dialog-->
+		<div class="modal-dialog modal-fullscreen">
+			<!--begin::Modal content-->
+			<div class="modal-content">
+				<!--begin::Modal body-->
+				<div class="modal-body align-middle">
+					<!--begin::Description-->
+					<!-- <img src="assets/images/flower.png" class="mh-50px mh-lg-80px mb-9" alt="" /> -->
+					<!-- <h1 class="mb-9">Terimakasih telah konfirmasi</h1> -->
+					<!-- <h3 class=" fs-4x fs-lg-3x text-danger mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}" style="font-family: 'Great Vibes';">Lulu & Mufidz</h3>
+					<a href="javascript:;" class="btn btn-danger" data-bs-dismiss="modal">Tutup</a> -->
+					<!--end::Description-->
+					<div class="d-flex flex-column flex-root">
+						<!--begin::Authentication - Password confirmation -->
+						<div class="d-flex flex-column flex-column-fluid">
+							<!--begin::Content-->
+							<div class="d-flex flex-column flex-center min-vh-100 text-center">
+								<!--begin::Title-->
+								<img src="assets/images/flower.png" class="mh-50px mh-lg-80px" alt="Lulu & Mufidz" />
+								<h1 class="fw-bolder fs-5x fs-lg-6x my-5" style="color: #F56282;font-family: 'Great Vibes';">
+									<span>Lulu & Mufidz</span><br>
+								</h1>
+								<img src="assets/images/avatars-min.webp" class="mh-150px mh-lg-250px" alt="" />
+								<img src="assets/images/heart-balloons.gif" class="mh-80px mh-lg-100px" alt="" />
+								<?php if (isset($_GET['to'])) : ?>
+									<div class="btn btn-flex btn-outline btn-outline-danger btn-outline-danger btn-active-danger px-6 mb-4">
+										<span class=""><i class="bi bi-file-earmark-richtext-fill text-danger fs-1"></i></span>
+										<span class="d-flex flex-column align-items-start ms-2">
+											<span class="fs-7">Undangan untuk:</span>
+											<span class="fs-3 fw-bolder"><?= $nama_undangan ?></span>
+										</span>
+									</div>
+								<?php endif; ?>
+								<a href="javascript:;" class="btn btn-danger" data-bs-dismiss="modal" id="bukaundangan">Buka Undangan</a>
+							</div>
+							<!--end::Content-->
+						</div>
+						<!--end::Authentication - Password confirmation-->
+					</div>
+				</div>
+				<!--end::Modal body-->
+			</div>
+			<!--end::Modal content-->
+		</div>
+		<!--end::Modal dialog-->
+	</div>
+	<!--end::Modal - Welcome-->
+
 	<script>
 		var hostUrl = "assets/";
 	</script>
@@ -690,11 +740,19 @@ License: For each use you must have a valid license purchased only from above li
 		}
 
 		$(document).ready(function() {
+			$('#modal-welcome').modal({
+				backdrop: 'static',
+				keyboard: false
+			});
+			$('#modal-welcome').modal('show');
 			get_ucapan();
 			$(".audio").mb_miniPlayer({
 				downloadable: false,
 			});
 
+			$('#bukaundangan').on('click', function() {
+				$('.audio').mb_miniPlayer_play()
+			})
 			$('#playaudio').on('click', function() {
 				$('.audio').mb_miniPlayer_play()
 			})

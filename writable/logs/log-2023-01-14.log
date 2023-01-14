@@ -314,3 +314,60 @@ in APPPATH\Views\ucapan.php on line 65.
  6 SYSTEMPATH\CodeIgniter.php(480): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
  7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-14 11:46:19 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'wedding' in C:\laragon\www\lulumufidz\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\laragon\www\lulumufidz\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'wedding', 3306, '', 0)
+#1 C:\laragon\www\lulumufidz\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\laragon\www\lulumufidz\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\laragon\www\lulumufidz\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\lulumufidz\app\Controllers\Home.php(57): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\lulumufidz\system\CodeIgniter.php(925): App\Controllers\Home->get_ucapan()
+#6 C:\laragon\www\lulumufidz\system\CodeIgniter.php(480): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\laragon\www\lulumufidz\system\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\lulumufidz\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'wedding' in C:\laragon\www\lulumufidz\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\laragon\www\lulumufidz\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\laragon\www\lulumufidz\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\laragon\www\lulumufidz\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\laragon\www\lulumufidz\app\Controllers\Home.php(57): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\laragon\www\lulumufidz\system\CodeIgniter.php(925): App\Controllers\Home->get_ucapan()
+#5 C:\laragon\www\lulumufidz\system\CodeIgniter.php(480): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 C:\laragon\www\lulumufidz\system\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\lulumufidz\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2023-01-14 11:46:19 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'wedding'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `ucapan`
+WHERE `deleted_at` is null
+ORDER BY `id` DESC', [], false)
+ 3 APPPATH\Controllers\Home.php(57): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\CodeIgniter.php(925): App\Controllers\Home->get_ucapan()
+ 5 SYSTEMPATH\CodeIgniter.php(480): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-14 12:30:36 --> Call to undefined function tgl_indo()
+in APPPATH\Views\ucapan.php on line 61.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('ucapan', [], true)
+ 4 APPPATH\Controllers\Home.php(61): view('ucapan', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(925): App\Controllers\Home->get_ucapan()
+ 6 SYSTEMPATH\CodeIgniter.php(480): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-14 12:30:48 --> Call to undefined function tgl_indo()
+in APPPATH\Views\ucapan.php on line 61.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('ucapan', [], true)
+ 4 APPPATH\Controllers\Home.php(61): view('ucapan', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(925): App\Controllers\Home->get_ucapan()
+ 6 SYSTEMPATH\CodeIgniter.php(480): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
