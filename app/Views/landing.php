@@ -35,6 +35,8 @@ License: For each use you must have a valid license purchased only from above li
 	<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 	<!--end::Global Stylesheets Bundle-->
+
+	<link rel="stylesheet" href="assets/plugins/custom/miniaudioplayer/dist/css/jQuery.mb.miniAudioPlayer.min.css" />
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -65,6 +67,12 @@ License: For each use you must have a valid license purchased only from above li
 						$nama_undangan = "";
 					}
 					?>
+					<a id="example" class="audio {loop:true, inLine:false}" href="<?= base_url() ?>/assets/music/until-i-found-you.mp3">
+						Stephen Sanchez - Until I Found You
+					</a>
+
+					<a href="javascript:;" class="btn btn-danger" id="playaudio">Play</a>
+					<a href="javascript:;" class="btn btn-danger" id="pauseaudio">Pause</a>
 					<?php if (isset($_GET['to'])) : ?>
 						<div class="btn btn-flex btn-outline btn-outline-danger btn-outline-danger btn-active-danger px-6">
 							<span class=""><i class="bi bi-file-earmark-richtext-fill text-danger fs-1"></i></span>
@@ -300,18 +308,9 @@ License: For each use you must have a valid license purchased only from above li
 										<label class="required fs-6 fw-bold mb-2">Nama</label>
 										<!--end::Label-->
 										<!--begin::Input-->
-										<input type="text" class="form-control form-control-solid" placeholder="Nama anda..." name="nama">
+										<input type="text" class="form-control form-control-solid" placeholder="Nama anda..." name="nama" required>
 										<!--end::Input-->
 										<div id="pesan-nama"></div>
-									</div>
-									<div class="fv-row mb-7 fv-plugins-icon-container">
-										<!--begin::Label-->
-										<label class="fs-6 fw-bold mb-2">Pesan</label>
-										<!--end::Label-->
-										<!--begin::Input-->
-										<textarea rows="3" class="form-control form-control-solid" placeholder="Pesan anda..." name="pesan"></textarea>
-										<!--end::Input-->
-										<div id="pesan-pesan"></div>
 									</div>
 									<div class="fv-row mb-7 fv-plugins-icon-container">
 										<!--begin::Label-->
@@ -335,10 +334,11 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<div class="text-center">
 										<button type="submit" class="btn btn-danger" id="btn-konfirmasi-kehadiran">
-											<span class="indicator-label">Konfirmasi</span>
-											<span class="indicator-progress">Mohon tunggu...
+											<span class="indicator-label label-konfirmasi-kehadiran">Konfirmasi</span>
+											<span class="indicator-progress progress-konfirmasi-kehadiran">Mohon tunggu...
 												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 										</button>
+										<a href="javascript:;" class="btn btn-primary er fs-6 px-8 py-4" data-bs-toggle="modal" data-bs-target="#modal-konfirmasi-kehadiran">Modal</a>
 									</div>
 									<!--end::Input group-->
 								</form>
@@ -373,11 +373,11 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<div class="separator separator-dashed border-danger opacity-25 mb-5"></div>
 								<div class="row">
-									<div class="col-xl-4 my-2">
+									<div class="col-xl-4 my-2 text-center">
 										<!--begin::Card-->
-										<div class="card card-dashed border-primary bg-light-primary h-xl-100 flex-row flex-stack flex-wrap p-6">
+										<div class="card card-dashed border-primary bg-light-primary w-100 p-6">
 											<!--begin::Info-->
-											<div class="d-flex flex-column py-2">
+											<div class="d-flex flex-column py-2" style="text-align: left;">
 												<!--begin::Wrapper-->
 												<div class="d-flex align-items-center">
 													<!--begin::Icon-->
@@ -385,7 +385,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Icon-->
 													<!--begin::Details-->
 													<div>
-														<div class="fs-4 fw-bolder">5410082526</div>
+														<div class="fs-4 fw-bolder" id="no-rekening">5410082526</div>
 														<div class="fs-6 fw-bold text-gray-400">a.n Muhamad Abdul Mufidz</div>
 													</div>
 													<!--end::Details-->
@@ -395,12 +395,14 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 										</div>
 										<!--end::Card-->
+										<a href="javascript:;" class="btn btn-bg-secondary btn-sm p-2 m-2 copy-text" data-rekening="5410082526" data-nama="muamalat">Click to copy</a>
+										<span class="badge badge-light-success" id="notice-muamalat" style="display: none;">Berhasil copy nomor rekening Bank Muamalat</span>
 									</div>
-									<div class="col-xl-4 my-2">
+									<div class="col-xl-4 my-2 text-center">
 										<!--begin::Card-->
-										<div class="card card-dashed border-primary bg-light-primary h-xl-100 flex-row flex-stack flex-wrap p-6">
+										<div class="btn btn-outline btn-outline-dashed border-primary bg-light-primary w-100 p-6">
 											<!--begin::Info-->
-											<div class="d-flex flex-column py-2">
+											<div class="d-flex flex-column py-2" style="text-align: left;">
 												<!--begin::Wrapper-->
 												<div class="d-flex align-items-center">
 													<!--begin::Icon-->
@@ -408,7 +410,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Icon-->
 													<!--begin::Details-->
 													<div>
-														<div class="fs-4 fw-bolder">7132031098</div>
+														<div class="fs-4 fw-bolder" id="no-rekening">7132031098</div>
 														<div class="fs-6 fw-bold text-gray-400">a.n Muhamad Abdul Mufidz</div>
 													</div>
 													<!--end::Details-->
@@ -418,12 +420,14 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 										</div>
 										<!--end::Card-->
+										<a href="javascript:;" class="btn btn-bg-secondary btn-sm p-2 m-2 copy-text" data-rekening="7132031098" data-nama="bsi">Click to copy</a>
+										<span class="badge badge-light-success" id="notice-bsi" style="display: none;">Berhasil copy nomor rekening Bank Syariah Indonesia</span>
 									</div>
-									<div class="col-xl-4 my-2">
+									<div class="col-xl-4 my-2 text-center">
 										<!--begin::Card-->
-										<div class="card card-dashed border-primary bg-light-primary h-xl-100 flex-row flex-stack flex-wrap p-6">
+										<div class="btn btn-outline btn-outline-dashed border-primary bg-light-primary w-100 p-6">
 											<!--begin::Info-->
-											<div class="d-flex flex-column py-2">
+											<div class="d-flex flex-column py-2" style="text-align: left;">
 												<!--begin::Wrapper-->
 												<div class="d-flex align-items-center">
 													<!--begin::Icon-->
@@ -434,7 +438,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Icon-->
 													<!--begin::Details-->
 													<div>
-														<div class="fs-4 fw-bolder">085877493514</div>
+														<div class="fs-4 fw-bolder" id="no-rekening">085877493514</div>
 														<div class="fs-6 fw-bold text-gray-400">a.n Muhamad Abdul Mufidz</div>
 													</div>
 													<!--end::Details-->
@@ -444,19 +448,13 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 										</div>
 										<!--end::Card-->
+										<a href="javascript:;" class="btn btn-bg-secondary btn-sm p-2 m-2 copy-text" data-rekening="085877493514" data-nama="emoney">Click to copy</a>
+										<span class="badge badge-light-success" id="notice-emoney" style="display: none;">Berhasil copy nomor E-Money</span>
 									</div>
 								</div>
 								<div class="text-center py-10 py-lg-10">
-									<button type="submit" class="btn btn-danger mx-1 my-2" id="btn-konfirmasi-kehadiran">
-										<span class="indicator-label">Konfirmasi ke Lulu</span>
-										<span class="indicator-progress">Mohon tunggu...
-											<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-									</button>
-									<button type="submit" class="btn btn-danger mx-1 my-2" id="btn-konfirmasi-kehadiran">
-										<span class="indicator-label">Konfirmasi ke Mufidz</span>
-										<span class="indicator-progress">Mohon tunggu...
-											<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-									</button>
+									<a href="https://wa.me/6281366984397" target="_blank" class="btn btn-danger mx-1 my-2">Konfirmasi ke Lulu</a>
+									<a href="https://wa.me/6285877493514" target="_blank" class="btn btn-danger mx-1 my-2">Konfirmasi ke Mufidz</a>
 								</div>
 							</div>
 							<!--end::Content-->
@@ -467,92 +465,202 @@ License: For each use you must have a valid license purchased only from above li
 				<!--end::Row-->
 			</div>
 			<!--end::Angpao-->
-		</div>
-		<!--end::Isi Section-->
-		<!--begin::Statistics Section-->
-		<div class="mt-20">
-			<!--begin::Curve top-->
-			<div class="landing-curve" style="color: #ffeded;">
-				<svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z" fill="currentColor"></path>
-				</svg>
-			</div>
-			<!--end::Curve top-->
-			<!--begin::Wrapper-->
-			<div style="background-color: #ffeded;">
-				<!--begin::Container-->
-				<div class="container">
-					<!--begin::Statistics-->
-
-					<div class="d-flex flex-column flex-center min-vh-100 text-center" style="padding-left: 20px;padding-right: 20px;">
-						<!--begin::Title-->
-						<span class="fs-1x fs-lg-4 my-10 my-lg-20" style="color: #80364a;">Kehadiran serta doa restu Bapak/Ibu/Saudara/i <br>
-							Merupakan suatu kehormatan dan kebahagiaan bagi Kami.<br>
-							Wassalamu’alaikum Warahmatullahi Wabarakatuh</span>
-						<img src="assets/images/avatars-min.webp" class="mh-80px mh-lg-150px mb-9" alt="" />
-						<!--begin::Heading-->
-						<div class="text-center" id="achievements" data-kt-scroll-offset="{default: 100, lg: 150}">
-							<!--begin::Title-->
-							<h3 class=" fs-4x fs-lg-3x text-danger mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}" style="font-family: 'Great Vibes';">Lulu & Mufidz</h3>
-							<!--end::Title-->
+			<!--begin::Konfirmasi Kehadiran-->
+			<div class="container">
+				<!--begin::Row-->
+				<div class="row w-100 gy-10 mb-md-20">
+					<!--begin::Col-->
+					<div class="rounded border p-10 pb-0 d-flex flex-column flex-center w-80">
+						<div class="alert bg-light-danger d-flex flex-center flex-column py-10 px-10 px-lg-20 mb-10 w-100">
+							<!--begin::Icon-->
+							<!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
+							<img src="assets/images/flower.png" class="mh-50px mh-lg-80px mb-9" alt="" />
+							<!--end::Svg Icon-->
+							<!--end::Icon-->
+							<!--begin::Content-->
+							<div class="w-100">
+								<div class="text-center">
+									<!--begin::Title-->
+									<h3 class=" fs-4x fs-lg-3x text-danger" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}" style="font-family: 'Great Vibes';">Kirimkan Ucapan & Doa</h3>
+									<!--end::Title-->
+									<div class="fw-bold fs-6 fs-lg-4 mb-5" style="color:#BF7388">Kehadiran Anda adalah kehormatan dan kebahagiaan bagi Kami</div>
+								</div>
+								<div class="separator separator-dashed border-danger opacity-25 mb-5"></div>
+								<form class="form fv-plugins-bootstrap5 fv-plugins-framework" id="form-ucapan">
+									<!--begin::Input group-->
+									<div class="fv-row mb-7 fv-plugins-icon-container">
+										<!--begin::Label-->
+										<label class="required fs-6 fw-bold mb-2">Nama</label>
+										<!--end::Label-->
+										<!--begin::Input-->
+										<input type="text" class="form-control form-control-solid" placeholder="Nama anda..." name="nama" required>
+										<!--end::Input-->
+										<div id="pesan-nama-ucapan"></div>
+									</div>
+									<div class="fv-row mb-7 fv-plugins-icon-container">
+										<!--begin::Label-->
+										<label class="fs-6 fw-bold mb-2 required">Ucapan & Doa</label>
+										<!--end::Label-->
+										<!--begin::Input-->
+										<textarea rows="3" class="form-control form-control-solid" placeholder="Ucapan & doa anda..." name="ucapan" required></textarea>
+										<!--end::Input-->
+										<div id="pesan-ucapan"></div>
+									</div>
+									<div class="text-center">
+										<button type="submit" class="btn btn-danger" id="btn-ucapan">
+											<span class="indicator-label label-ucapan">Kirim</span>
+											<span class="indicator-progress progress-ucapan">Mohon tunggu...
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+											</span>
+										</button>
+									</div>
+									<!--end::Input group-->
+								</form>
+								<div class="my-10" id="show-ucapan">
+								</div>
+							</div>
 						</div>
-						<!--end::Heading-->
-						<img src="assets/images/heart-balloons.gif" class="mh-80px mh-lg-100px mb-9" alt="" />
+						<!--end::Content-->
 					</div>
-					<!--end::Statistics-->
 				</div>
-				<!--end::Container-->
+				<!--end::Col-->
 			</div>
-			<!--end::Wrapper-->
+			<!--end::Row-->
 		</div>
-		<!--end::Statistics Section-->
-		<!--begin::Footer Section-->
-		<div class="mb-0">
-			<!--begin::Wrapper-->
-			<div class="landing-dark-bg pt-10">
-				<!--begin::Separator-->
-				<div class="landing-dark-separator"></div>
-				<!--end::Separator-->
-				<!--begin::Container-->
-				<div class="container">
-					<!--begin::Wrapper-->
-					<div class="d-flex flex-column flex-md-row flex-stack py-7 py-lg-10">
-						<!--begin::Copyright-->
-						<div class="d-flex align-items-center order-2 order-md-1">
-							<!--begin::Logo image-->
-							<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="https://keenthemes.com">© 2023 Lulu & Mufidz</span>
-							<!--end::Logo image-->
-						</div>
-						<!--end::Copyright-->
-						<!--begin::Menu-->
-						<ul class="menu menu-gray-600 menu-hover-primary fw-bold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
-							<li class="menu-item">
-								<a href="https://mufidz.com/" target="_blank" class="menu-link px-2">About</a>
-							</li>
-						</ul>
-						<!--end::Menu-->
-					</div>
-					<!--end::Wrapper-->
-				</div>
-				<!--end::Container-->
-			</div>
-			<!--end::Wrapper-->
-		</div>
-		<!--end::Footer Section-->
-		<!--begin::Scrolltop-->
-		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-			<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
-			<span class="svg-icon">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-					<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
-					<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
-				</svg>
-			</span>
-			<!--end::Svg Icon-->
-		</div>
-		<!--end::Scrolltop-->
+		<!--end::Konfirmasi Kehadiran-->
 	</div>
-	<!--end::Main-->
+	<!--end::Isi Section-->
+	<!--begin::Statistics Section-->
+	<div class="mt-20">
+		<!--begin::Curve top-->
+		<div class="landing-curve" style="color: #ffeded;">
+			<svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z" fill="currentColor"></path>
+			</svg>
+		</div>
+		<!--end::Curve top-->
+		<!--begin::Wrapper-->
+		<div style="background-color: #ffeded;">
+			<!--begin::Container-->
+			<div class="container">
+				<!--begin::Statistics-->
+
+				<div class="d-flex flex-column flex-center min-vh-100 text-center" style="padding-left: 20px;padding-right: 20px;">
+					<!--begin::Title-->
+					<span class="fs-1x fs-lg-4 my-10 my-lg-20" style="color: #80364a;">Kehadiran serta doa restu Bapak/Ibu/Saudara/i <br>
+						Merupakan suatu kehormatan dan kebahagiaan bagi Kami.<br>
+						Wassalamu’alaikum Warahmatullahi Wabarakatuh</span>
+					<img src="assets/images/avatars-min.webp" class="mh-80px mh-lg-150px mb-9" alt="" />
+					<!--begin::Heading-->
+					<div class="text-center" id="achievements" data-kt-scroll-offset="{default: 100, lg: 150}">
+						<!--begin::Title-->
+						<h3 class=" fs-4x fs-lg-3x text-danger mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}" style="font-family: 'Great Vibes';">Lulu & Mufidz</h3>
+						<!--end::Title-->
+					</div>
+					<!--end::Heading-->
+					<img src="assets/images/heart-balloons.gif" class="mh-80px mh-lg-100px mb-9" alt="" />
+				</div>
+				<!--end::Statistics-->
+			</div>
+			<!--end::Container-->
+		</div>
+		<!--end::Wrapper-->
+	</div>
+	<!--end::Statistics Section-->
+	<!--begin::Footer Section-->
+	<div class="mb-0">
+		<!--begin::Wrapper-->
+		<div class="landing-dark-bg pt-10">
+			<!--begin::Separator-->
+			<div class="landing-dark-separator"></div>
+			<!--end::Separator-->
+			<!--begin::Container-->
+			<div class="container">
+				<!--begin::Wrapper-->
+				<div class="d-flex flex-column flex-md-row flex-stack py-7 py-lg-10">
+					<!--begin::Copyright-->
+					<div class="d-flex align-items-center order-2 order-md-1">
+						<!--begin::Logo image-->
+						<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="https://keenthemes.com">© 2023 Lulu & Mufidz</span>
+						<!--end::Logo image-->
+					</div>
+					<!--end::Copyright-->
+					<!--begin::Menu-->
+					<ul class="menu menu-gray-600 menu-hover-primary fw-bold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
+						<li class="menu-item">
+							<a href="https://mufidz.com/" target="_blank" class="menu-link px-2">About</a>
+						</li>
+					</ul>
+					<!--end::Menu-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Container-->
+		</div>
+		<!--end::Wrapper-->
+	</div>
+	<!--end::Footer Section-->
+	<!--begin::Scrolltop-->
+	<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+		<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+		<span class="svg-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+				<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+				<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
+			</svg>
+		</span>
+		<!--end::Svg Icon-->
+	</div>
+	<!--end::Scrolltop-->
+
+
+	<!--begin::Modal - Invite Friends-->
+	<div class="modal fade" id="modal-konfirmasi-kehadiran" tabindex="-1" aria-hidden="true">
+		<!--begin::Modal dialog-->
+		<div class="modal-dialog mw-650px">
+			<!--begin::Modal content-->
+			<div class="modal-content">
+				<!--begin::Modal header-->
+				<div class="modal-header pb-0 border-0 justify-content-end">
+					<!--begin::Close-->
+					<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+						<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+						<span class="svg-icon svg-icon-1">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+								<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+							</svg>
+						</span>
+						<!--end::Svg Icon-->
+					</div>
+					<!--end::Close-->
+				</div>
+				<!--begin::Modal header-->
+				<!--begin::Modal body-->
+				<div class="modal-body scroll-y mx-5 mx-xl-18 pt-0 pb-15">
+					<!--begin::Heading-->
+					<div class="text-center mb-13">
+						<!--begin::Description-->
+						<img src="assets/images/flower.png" class="mh-50px mh-lg-80px mb-9" alt="" />
+						<h1 class="mb-9">Terimakasih telah konfirmasi</h1>
+						<h3 class=" fs-4x fs-lg-3x text-danger mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}" style="font-family: 'Great Vibes';">Lulu & Mufidz</h3>
+						<a href="javascript:;" class="btn btn-danger" data-bs-dismiss="modal">Tutup</a>
+						<!--end::Description-->
+					</div>
+					<!--end::Heading-->
+					<!--begin::Google Contacts Invite-->
+					<!--end::Google Contacts Invite-->
+				</div>
+				<!--end::Notice-->
+			</div>
+			<!--end::Modal body-->
+		</div>
+		<!--end::Modal content-->
+	</div>
+	<!--end::Modal dialog-->
+	</div>
+	<!--end::Modal - Invite Friend-->
+
 	<script>
 		var hostUrl = "assets/";
 	</script>
@@ -564,17 +672,72 @@ License: For each use you must have a valid license purchased only from above li
 	<!--begin::Page Vendors Javascript(used by this page)-->
 	<script src="assets/plugins/custom/fslightbox/fslightbox.bundle.js"></script>
 	<script src="assets/plugins/custom/typedjs/typedjs.bundle.js"></script>
+	<script src="assets/plugins/custom/miniaudioplayer/dist/jquery.mb.miniAudioPlayer.min.js"></script>
 	<!--end::Page Vendors Javascript-->
 	<!--begin::Page Custom Javascript(used by this page)-->
 	<script src="assets/js/custom/landing.js"></script>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 	<script type="text/javascript">
+		function get_ucapan(params) {
+			$.ajax({
+				url: 'home/get_ucapan',
+				type: 'get',
+				success: function(returndata) {
+					$('#show-ucapan').html(returndata);
+				}
+			});
+		}
+
 		$(document).ready(function() {
+			get_ucapan();
+			$(".audio").mb_miniPlayer({
+				downloadable: false,
+			});
+
+			$('#playaudio').on('click', function() {
+				$('.audio').mb_miniPlayer_play()
+			})
+			$('#pauseaudio').on('click', function() {
+				$('.audio').mb_miniPlayer_stop()
+			})
+			$('.copy-text').on('click', function() {
+				var temp = $("<input>");
+				$("body").append(temp);
+				temp.val($(this).attr('data-rekening')).select();
+				document.execCommand("copy");
+				temp.remove();
+				var bank = $(this).attr('data-nama');
+				$('#notice-' + bank).css("display", "block");
+				setTimeout(function() {
+					$('#notice-' + bank).css("display", "none");
+				}, 2000);
+			})
+
+			$('#form-ucapan').on('submit', function(event) {
+				event.preventDefault();
+				$('.label-ucapan').css("display", "none");
+				$('.progress-ucapan').css("display", "block");
+				var data = $(this).serialize();
+				$.ajax({
+					url: 'home/post_ucapan',
+					type: 'post',
+					data: data,
+					dataType: 'JSON',
+					success: function(returndata) {
+						setTimeout(function() {
+							$('.label-ucapan').css("display", "block");
+							$('.progress-ucapan').css("display", "none");
+							get_ucapan();
+						}, 1300);
+					}
+				});
+			});
+
 			$('#form-konfirmasi-kehadiran').on('submit', function(event) {
 				event.preventDefault();
-				$('.indicator-label').css("display", "none");
-				$('.indicator-progress').css("display", "block");
+				$('.label-konfirmasi-kehadiran').css("display", "none");
+				$('.progress-konfirmasi-kehadiran').css("display", "block");
 				var data = $(this).serialize();
 				$.ajax({
 					url: 'home/post_kehadiran',
@@ -583,9 +746,10 @@ License: For each use you must have a valid license purchased only from above li
 					dataType: 'JSON',
 					success: function(returndata) {
 						setTimeout(function() {
-							$('.indicator-progress').css("display", "none");
-							$('.indicator-label').css("display", "block");
-						}, 2000);
+							$('.label-konfirmasi-kehadiran').css("display", "block");
+							$('.progress-konfirmasi-kehadiran').css("display", "none");
+							$('#modal-konfirmasi-kehadiran').modal("show");
+						}, 1300);
 					}
 				});
 			});
