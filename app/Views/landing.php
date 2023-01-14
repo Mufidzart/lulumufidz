@@ -338,7 +338,6 @@ License: For each use you must have a valid license purchased only from above li
 											<span class="indicator-progress progress-konfirmasi-kehadiran">Mohon tunggu...
 												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 										</button>
-										<a href="javascript:;" class="btn btn-primary er fs-6 px-8 py-4" data-bs-toggle="modal" data-bs-target="#modal-konfirmasi-kehadiran">Modal</a>
 									</div>
 									<!--end::Input group-->
 								</form>
@@ -746,8 +745,12 @@ License: For each use you must have a valid license purchased only from above li
 			});
 			$('#modal-welcome').modal('show');
 			get_ucapan();
+
 			$(".audio").mb_miniPlayer({
 				downloadable: false,
+				skin: "red",
+				allowMute: true,
+				addGradientOverlay: true
 			});
 
 			$('#bukaundangan').on('click', function() {
