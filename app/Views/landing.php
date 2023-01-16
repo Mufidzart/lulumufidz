@@ -59,7 +59,7 @@ License: For each use you must have a valid license purchased only from above li
 					<h1 class="fw-bolder fs-5x fs-lg-6x my-5" style="color: #F56282;font-family: 'Great Vibes';">
 						<span>Lulu & Mufidz</span><br>
 					</h1>
-					<img src="assets/images/heart-balloons.gif" class="mh-80px mh-lg-100px mb-9" alt="" />
+					<img src="assets/images/heart-balloon.gif" class="mh-50px" alt="Lulu & Mufidz" />
 					<?php
 					if (isset($_GET['to'])) {
 						$nama_undangan =  str_replace("+", " ", $_GET['to']);
@@ -158,7 +158,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Heading-->
 							<!--begin::Description-->
 							<div class="fw-bold fs-6 fs-lg-4" style=" color:#BF7388">Desa Kotayasa, Kecamatan Sumbang
-								<br />Putri Bapak Nartono dan Ibu Narsitem
+								<br />Putra Bapak Nartono dan Ibu Narsitem
 							</div>
 							<div class="row mt-5">
 								<div class="col-md-12">
@@ -558,7 +558,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Title-->
 					</div>
 					<!--end::Heading-->
-					<img src="assets/images/heart-balloons.gif" class="mh-80px mh-lg-100px mb-9" alt="" />
+					<img src="assets/images/heart-balloon.gif" class="mh-50px" alt="Lulu & Mufidz" />
 				</div>
 				<!--end::Statistics-->
 			</div>
@@ -679,14 +679,14 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Authentication - Password confirmation -->
 						<div class="d-flex flex-column flex-column-fluid">
 							<!--begin::Content-->
-							<div class="d-flex flex-column flex-center min-vh-100 text-center">
+							<div class="d-flex flex-column flex-center text-center" style="min-height: 90vh;">
 								<!--begin::Title-->
 								<img src="assets/images/flower.png" class="mh-50px mh-lg-80px" alt="Lulu & Mufidz" />
 								<h1 class="fw-bolder fs-5x fs-lg-6x my-5" style="color: #F56282;font-family: 'Great Vibes';">
 									<span>Lulu & Mufidz</span><br>
 								</h1>
 								<img src="assets/images/avatars-min.webp" class="mh-150px mh-lg-250px" alt="" />
-								<img src="assets/images/heart-balloons.gif" class="mh-80px mh-lg-100px" alt="" />
+								<img src="assets/images/heart-balloon.gif" class="mh-50px" alt="Lulu & Mufidz" />
 								<?php if (isset($_GET['to'])) : ?>
 									<div class="btn btn-flex btn-outline btn-outline-danger btn-outline-danger btn-active-danger px-6 mb-4">
 										<span class=""><i class="bi bi-file-earmark-richtext-fill text-danger fs-1"></i></span>
