@@ -336,7 +336,8 @@ License: For each use you must have a valid license purchased only from above li
 										<button type="submit" class="btn btn-danger" id="btn-konfirmasi-kehadiran">
 											<span class="indicator-label label-konfirmasi-kehadiran">Konfirmasi</span>
 											<span class="indicator-progress progress-konfirmasi-kehadiran">Mohon tunggu...
-												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+											</span>
 										</button>
 									</div>
 									<!--end::Input group-->
